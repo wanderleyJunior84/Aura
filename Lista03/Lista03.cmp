@@ -1,0 +1,14 @@
+<aura:component controller ="classexer3" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="accs" type="Account[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:card iconName="standard:account" title="Contas em Negociação">
+    <div class='slds-p-arround_medium'>
+        <aura:iteration items="{!v.accs}" var="accounts">
+    <p>--------------------------------------------------</p>
+                    <p>Nome: {!accounts.Name}</p>
+                    <p>Estágio: {!accounts.Estagio__c}</p>
+                    <p>Rating: {!accounts.Rating}</p>
+    </aura:iteration>
+</div>
+    </lightning:card>
+</aura:component>

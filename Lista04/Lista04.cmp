@@ -1,0 +1,38 @@
+<aura:component controller="classex4" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+   <div class="slds-box slds-theme_default">
+    <lightning:recordEditForm aura:id="recordEditForm"
+                           objectApiName="Lista_Produtos__c"
+                              	onsuccess="{!c.showToast}">
+        <lightning:messages />
+        <lightning:inputField fieldName="Name" />
+        <lightning:inputField fieldName="Produto__c" />
+        <lightning:inputField fieldName="Valor__c" />
+        <lightning:inputField fieldName="Quantidade__c" />
+        <lightning:button class="slds-m-top_small" type="submit" label="Adicionar a Lista" />
+    </lightning:recordEditForm>
+    </div>
+<aura:handler name="init" value="{!this}" action="{!c.myAction}"/>
+    <aura:attribute name="getList" type="List" />
+    <aura:iteration items="{!v.getList}" var="con">
+        <lightning:card title="Lista materiais a comprar">
+       <table class="slds-table slds-table--bordered slds-table--striped">
+         <thead>    
+            <tr>
+                <th>Produto</th>
+                 <th>Valor</th>
+                <th>Qtde</th>
+            </tr>
+            </thead>
+           <tbody>
+                <aura:iteration items="{!v.getList}" var="con"> 
+               <tr>
+                   <td>{!con.Produto__c}</td>
+                   <td>{!con.Valor__c}</td>
+                   <td>{!con.Quantidade__c}</td>
+</tr>
+                    </aura:iteration>
+           </tbody>
+</table>
+            </lightning:card>
+    </aura:iteration>
+</aura:component>

@@ -1,0 +1,16 @@
+<aura:component controller="lista" implements="flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="account" type="Account[]" />
+    <!--aura:handler-->
+   	<!--<aura:handler name="init" value="{!this}" action="{!c.doInit}" />-->
+<lightning:card iconName="standard:opportunity" title="Contas em Negociação">
+    	<div class="slds-p-around_medium">
+            <aura:iteration items="{!v.account}" var="account">
+                <p>------------</p>
+                <p>{!opp.Name}</p>
+                <p>{!opp.Amount}</p>
+                <p>{!opp.StageName}</p>
+                <p>{!opp.CloseDate}</p>
+            </aura:iteration>
+        </div>
+    </lightning:card>
+</aura:component>
